@@ -2,6 +2,10 @@ h2 {
   color: #c70000;
 }
 
+h2 {
+  color: #c70000;
+}
+
 footer {
   background-color: #00CDD1;
   color: white;
@@ -31,7 +35,31 @@ h1 {
   font-size: 29px;
   padding: 2em;
   margin: 1em;
-  border-bottom: 1px dotted #c80060;
+  border-bottom: 3px dotted #c80060;
+}
+
+h2 {
+  color: white;
+}
+
+h1, h3, h5 {
+  color: black;
+  font-weight: normal;
+  font-family: Georgia, serif;
+  font-style: italic;
+  background-color: #00c4c7;
+}
+
+h2, h4 {
+  color: white;
+  font-weight: normal;
+  font-family: Georgia, serif;
+  font-style: italic;
+  background-color: #c80060;
+}
+
+.buttons a {
+  border-radius: 0.625em;
 }
 
 /*# sourceMappingURL=main.css.map */

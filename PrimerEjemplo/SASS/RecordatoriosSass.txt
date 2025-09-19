@@ -1,0 +1,101 @@
+Comando para automatizar scss con css:
+sass -w .\scss\main.scss .\css\main.css
+Ten cuidado con la ruta
+sass -w .\scss\:.\css\
+Para copiar todas las carpetas
+
+
+Variables con $
+!global para sobreponer
+!default para poner por defecto
+
+En este formato un ejemplo:
+$micolor: #00c4c7; 
+$micolor: #c70000 !default; 
+
+h2 {
+   
+   $micolor: #c70000 !global;    
+   color: $micolor; 
+}
+
+h1 {    
+   color: $micolor; 
+}
+
+Documentación de SASS: 
+●Números (ejemplo: 1.2, 13, 10px) 
+●Strings, Cadenas de texto con o sin comillas simples o dobles (ejemplo "foo", bar', baz) 
+●Valores lógicos o booleanos (ejemplo true, false) ●Valores nulos (ejemplo null) 
+●Listas de valores, separados por espacios en blanco o comas (ejemplo 1.5em 1em 0 2em, Helvetica, Arial, sans-serif) 
+●Pares formados por una clave y un valor separados por: (ejemplo (key1:value1, key2: value2))
+
+
+Te anida de la siguiente manera, los elementos dentro del footer:
+footer {    
+   background-color: #00CDD1;    
+   color: white;    clear: both;      
+   border-top: 1px solid #00CDD1;    
+   
+   p {        
+      text-align: center;    
+   } 
+
+   img {        
+      width: 52px;    
+   } 
+
+   a {        
+      color: white;        
+      text-decoration: none;    
+   } 
+}
+
+
+// el > sirve para meternos dentro de esa sección por ejemplo.
+article {
+
+   section>h3{
+      line-height: 1em;
+   }
+}
+
+//El + es el hermano de sección.
+// <section></section>
+// <p></p> Ese p es hermano. Si estuviera dentro sería hijo.
+section+p{
+
+   color:azure;
+
+}
+
+ todos los hermanos de la sección sería así: section~p{}
+section~p{
+
+   color:azure;
+
+}
+
+
+// FUNCIONES MATEMÁTICAS
+$mimargen: 1.99 em;
+
+h1 {    
+   font-size:round(1.8*16px);
+   padding: ceil(1.2em);
+   margin:floor($mimargen);
+   border-bottom: (random(10)+px) dotted #c80060; 
+}
+
+
+
+INTERPOLACIÓN
+Me sirve para hacer referencia a esa palabra concreta dentro de la p.
+$name:foo;
+
+p. #($name) {
+   font: #{$attr}-color:blue;
+}
+
+
+
