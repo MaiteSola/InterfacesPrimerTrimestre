@@ -1,0 +1,92 @@
+/* Button Menu */
+@import "./botones/botones.scss";
+@import url(https://fonts.googleapis.com/css?family=Fredoka+One|IM+Fell+English|Montserrat|Sanchez|Rock+Salt);
+
+$color: #64E0BA;
+
+//Función para oscurecer el color
+@function oscurecerColor($color) {
+  @return darken($color,30%);
+}
+
+//Generar una variable value-x
+$value-px: 10px;
+//utiliza operaciones aritméticas para sustituir los valores fijos por el uso de esta variable. 
+
+//Anidamientos
+
+.buttons {
+  background: url("../images/bg-horizontal-menu.jpg"); 
+    li{
+        display: inline-block; 
+    }
+
+    a{
+        display: inline-block;
+        color: $color;
+        background: #64E0BA;
+        padding: (1 x $value-px) ($value-px x 1.8);
+        margin: (1.5 x $value-px) (1 x $value-px);
+        font-family: 'Fredoka One', sans-serif;
+        border-radius: (2 x $value-px);
+        box-shadow: (0 x $value-px) ($value-px/ 1.25) (0 x $value-px) (0 x $value-px) #4AA185; 
+          
+          &:hover{
+              background: oscurecerColor($color);
+          }
+    }
+}
+
+//Genera un mixin o función para transformar todos los valores px a em. Recuerda que 16px es 1 em. 
+@mixin cambioValor($value-px) 
+{    
+  $value-px:10px;
+}
+
+
+
+
+
+// .buttons {
+//   background: url("../images/bg-horizontal-menu.jpg"); 
+// }
+// .buttons li {
+//   display: inline-block; 
+// }
+// .buttons a {
+//   display: inline-block;
+//   color: $color;
+//   background: #64E0BA;
+//   padding: (1 x $value-px) ($value-px x 1.8);
+//   margin: (1.5 x $value-px) (1 x $value-px);
+//   font-family: 'Fredoka One', sans-serif;
+//   border-radius: (2 x $value-px);
+//   box-shadow: (0 x $value-px) ($value-px/ 1.25) (0 x $value-px) (0 x $value-px) #4AA185; 
+// }
+// .buttons a:hover {
+//     background: oscurecerColor($color);
+//   //background: #1d8f6c; 
+// }
+
+* {
+  box-sizing: border-box; 
+}
+
+section {
+  padding: 5rem 0;
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.2s ease-in-out; 
+}
+
+ul {
+  list-style-type: none; 
+}
