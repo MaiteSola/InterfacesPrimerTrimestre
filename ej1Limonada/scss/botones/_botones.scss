@@ -1,0 +1,40 @@
+@use "sass:color";
+@use "sass:math";
+@import url(https://fonts.googleapis.com/css?family=Fredoka+One|IM+Fell+English|Montserrat|Sanchez|Rock+Salt);
+//Color
+$color: #64e0ba;
+//Generar una variable value-x utiliza operaciones aritméticas para sustituir los valores fijos por el uso de esta variable.
+$value-px: 10px;
+
+//Función para oscurecer el color. ACuerdate de importar sass:color;
+@function oscurecerColor($color) {
+  //Reducir la lightness un 30%
+  @return color.adjust($color, $lightness: -30%);
+  // @return darken($color,30%); Esta desactualizado
+}
+
+//Anidamientos
+.buttons {
+  background: url("../images/bg-horizontal-menu.jpg");
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: inline-block;
+    color: white;
+    background: $color;
+    padding: (1 * $value-px) ($value-px * 1.8);
+    margin: (1.5 * $value-px) (1 * $value-px);
+    font-family: "Fredoka One", sans-serif;
+    border-radius: (2 * $value-px);
+    box-shadow: (0 * $value-px) math.div($value-px, 1.25) (0 * $value-px)
+      (0 * $value-px) #4aa185;
+
+    &:hover {
+      //background: #1d8f6c;
+      background-color: oscurecerColor($color);
+    }
+  }
+}

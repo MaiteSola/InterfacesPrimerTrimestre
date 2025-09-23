@@ -1,0 +1,35 @@
+@use "sass:color";
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+
+
+$colorMain: rgb(180, 194, 56);
+
+//1. Establece un mixin, lo más sencillo posible
+//para definir la familia del texto y la alineación.
+
+@mixin contenidoMain($font-family, $text-align) {
+  font-family: $font-family;
+  text-align: $text-align;
+  
+}
+
+main {
+  background-color: color.adjust($colorMain, $saturation: -10);
+  
+  h1 {
+    @include contenidoMain("Roboto", center);
+    background-color: #8f9a2d;
+  }
+
+  .banner {
+    @include contenidoMain("Pacifico", center);
+    height: 2em;
+    background-color: #b4c238;
+  }
+
+  .container {
+    @include contenidoMain("Pacifico", center);
+    background-color: rgba(180, 194, 56, 0.5);
+  }
+}
