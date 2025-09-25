@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Delius&family=Oswald:wght@200..700&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Sen:wght@400..800&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+.navbar, .seccion_articulo {
+  background-color: #64e06c;
+}
+.navbar .navbar-list, .seccion_articulo .navbar-list {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background: #64e06c;
+  background: linear-gradient(90deg, #64e06c 0%, rgb(60.1807228916, 222.1084337349, 239.8192771084) 100%);
+}
+.navbar .navbar-list-item, .seccion_articulo .navbar-list-item {
+  display: inline-block;
+  font-family: "Sanchez";
+  font-size: 0.96rem;
+  padding-left: 5.5em;
+  padding-right: 5.5em;
+  padding-top: -5em;
+  padding-bottom: -5em;
+}
+.navbar .navbar-list-item:hover, .seccion_articulo .navbar-list-item:hover {
+  font-size: 1.212rem;
+}
+.navbar .navbar-list-item a, .seccion_articulo .navbar-list-item a {
+  color: rgb(179.4851485149, 28.5544554455, 26.5148514851);
+}
+
+main {
+  width: 100%;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.portada, .contenedor, .subcontenedor {
+  color: black;
+  font-size: 1.212rem;
+  width: 90%;
+  font-family: "Montserrat";
+  background-color: rgb(202.1204819277, 246.0722891566, 250.8795180723);
+}
+
+.contenedor, .subcontenedor {
+  margin: auto;
+}
+
+.subcontenedor {
+  font-size: 0.8484rem;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: -5em;
+  padding-bottom: -5em;
+}
+
+.seccion_articulo {
+  font-family: "Montserrat";
+  border: 0.5rem solid rgb(154.8072289157, 238.0843373494, 247.1927710843);
+  color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 0 3rem 0 3rem;
+}
+.seccion_articulo .html img {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.seccion_articulo .seccion_articulo-titulo {
+  font-size: 1.2rem;
+}
+.seccion_articulo .seccion_articulo-cuerpo {
+  font-size: 0.84rem;
+}
+
+footer {
+  font-family: "Rock Salt";
+  position: sticky;
+  bottom: 0;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Delius", cursive;
+}
+
+html {
+  background-color: #caedfb;
+}
+
+section {
+  padding: 5rem 0;
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/*# sourceMappingURL=style.css.map */

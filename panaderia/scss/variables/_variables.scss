@@ -1,0 +1,26 @@
+@use "sass:color";
+
+$red: rgb(229,81,79);
+$green: #64e06c;
+$blue: rgb(18,210,231);
+$white: oldlace;
+$primary: $green;
+$secondary: color.adjust($blue, $lightness: 10%); //mas claro
+$accent: color.adjust($red, $lightness: -20%); //mas oscuro
+
+
+//Fuente
+$color: black;
+$font-size-base: 1.2rem;
+$font-size-lg: $font-size-base*1.01;
+
+//Bordes
+
+$border-bottom-color: color.adjust($secondary,$lightness: 20%);
+$border-radius: .5rem;
+
+//Padding
+
+$padding-x: .5em;
+$padding-y: -5em;
+

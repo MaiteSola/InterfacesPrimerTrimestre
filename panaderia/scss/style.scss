@@ -1,0 +1,39 @@
+//Scss de estilos y variables
+
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Oswald:wght@200..700&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Sen:wght@400..800&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+@import "./variables/variables";
+@import "./mixins/mixins";
+@import "./barraNavegacion/barra";
+@import "./principal/principal";
+@import "./footer/footer";
+
+
+* {
+  box-sizing: border-box;
+  font-family: "Delius",cursive; //NO me lo hace
+    
+}
+
+html {
+  background-color: #caedfb;
+  
+ }
+section {
+  padding: 5rem 0;
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+a {
+  text-decoration: none;  
+  transition: all 0.2s ease-in-out;
+}
+ul {
+  list-style-type: none;
+ }
+
