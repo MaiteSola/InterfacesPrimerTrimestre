@@ -1,0 +1,10 @@
+footer{ position: fixed; bottom: 0;  } 
+
+footer
+{
+    position: sticky;
+    bottom:0;
+    background: url('../images/bg-horizontal-menu.jpg');
+    @extend section ;
+
+}

@@ -45,7 +45,7 @@ main .container {
   box-sizing: border-box;
 }
 
-section {
+section, footer {
   padding: 5rem 0;
   width: 100%;
   text-align: center;
@@ -62,6 +62,17 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+}
+
+footer {
+  position: sticky;
+  bottom: 0;
+  background: url("../images/bg-horizontal-menu.jpg");
 }
 
 /*# sourceMappingURL=main.css.map */

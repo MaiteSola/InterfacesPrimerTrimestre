@@ -3,6 +3,7 @@
 @import "./body/body.scss";
 
 
+
 //Con funciones
 @function em-to-px($px-value, $base-font-size: 16px) {
   @return ($px-value * $base-font-size);
@@ -37,3 +38,6 @@ a {
 ul {
   list-style-type: none;
 }
+
+
+@import "./footer/footer"; //Lo pones al final porque hay un extend de esta
