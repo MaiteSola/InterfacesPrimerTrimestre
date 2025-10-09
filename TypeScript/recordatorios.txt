@@ -1,0 +1,11 @@
+tsc -w para crear el dist en la carpeta desde la carpeta donde tienes el tsconfig.json
+
+ESTRUCUTRA DE MODULOS
+1) <script type="module" src="./dist/app.js"></script> cambiamos a tipo MODULOS
+2) Un import y un export en el lugar.
+    export desde clase: export * as calculadora from  "./calculadora.js"
+    import: import * as Calculadora from "./calculadora.js";
+
+
+3) Publicar desde un navegador. desde el xampp o desde el liveServer.
+

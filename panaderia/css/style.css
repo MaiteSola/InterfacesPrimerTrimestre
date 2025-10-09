@@ -11,7 +11,7 @@
   background: #64e06c;
   background: linear-gradient(90deg, #64e06c 0%, rgb(60.1807228916, 222.1084337349, 239.8192771084) 100%);
 }
-.navbar .navbar-list-item, .seccion_articulo .navbar-list-item {
+.navbar .navbar-list .navbar-list-item, .seccion_articulo .navbar-list .navbar-list-item {
   display: inline-block;
   font-family: "Sanchez";
   font-size: 0.96rem;
@@ -20,10 +20,10 @@
   padding-top: -5em;
   padding-bottom: -5em;
 }
-.navbar .navbar-list-item:hover, .seccion_articulo .navbar-list-item:hover {
+.navbar .navbar-list .navbar-list-item:hover, .seccion_articulo .navbar-list .navbar-list-item:hover {
   font-size: 1.212rem;
 }
-.navbar .navbar-list-item a, .seccion_articulo .navbar-list-item a {
+.navbar .navbar-list .navbar-list-item a, .seccion_articulo .navbar-list .navbar-list-item a {
   color: rgb(179.4851485149, 28.5544554455, 26.5148514851);
 }
 
@@ -84,7 +84,7 @@ footer {
 
 * {
   box-sizing: border-box;
-  font-family: "Delius", cursive;
+  font-family: "Delius";
 }
 
 html {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calculadora</title>
+    <!-- <script type="text/javascript" src="./dist/calculadora.ts"></script> -->
+
+</head>
+
+<body>
+    <h1>CALCULADORA</h1>
+    <form id="calculadora">
+        <label for="num1">Número 1: </label>
+        <input type="text" id="num1" required><br><br>
+
+        <label for="operador">Operador:</label>
+        <select id="operador" name="operador" required>
+            <option value="sumar">+</option>
+            <option value="restar">-</option>
+            <option value="multiplicar">x</option>
+            <option value="dividir">/</option>
+
+        </select> <br><br>
+        <label for="num2">Número 2: </label>
+        <input type="text" id="num2" required><br><br>
+
+
+        <button type="button" id="btnCalcular">Calcular</button>
+         <button type="button" id="btnBorrar">Borrar</button>
+
+    </form>
+
+    <h2>Resultado: <span id="resultado"></span></h2>
+</body>
+
+<!-- <script type="text/javascript" src="./dist/calculadora.js"></script> -->
+<script type="module" src="./dist/app.js"></script>
+
+</html>

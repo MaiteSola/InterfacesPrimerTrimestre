@@ -1,20 +1,30 @@
 //Importar las variables
 
-@mixin padding-xy($x,$y) {
-
-    padding-left: $x;
-    padding-right: $x;
-    padding-top: $y;
-    padding-bottom: $y;
+@mixin padding-xy($x, $y) {
+  padding-left: $x;
+  padding-right: $x;
+  padding-top: $y;
+  padding-bottom: $y;
 }
 
-@mixin gradient-bg($color1, $color2, $color3: null) {
+@mixin gradient-bg($color1, $color2: null, $color3: null) {
   //Con el null puedo decir si es opcional
   background: $color1;
-  @if $color3 !=null {
+  @if ($color2 !=null and $color3 !=null) {
     background: linear-gradient(90deg, $color1 0%, $color2 35%, $color3 100%);
-  } @else {
+  } @else if ($color2 !=null) {
     background: linear-gradient(90deg, $color1 0%, $color2 100%);
   }
 }
 
+
+
+//ejemplo funciones:
+@function em-to-px($em-value, $base-font-size: 16px) {
+  @return $em-value * $base-font-size;
+}
+
+
+@function px-to-em($px-value, $base-font-size: 16px) {
+  @return ($px-value / $base-font-size) * 1em;
+}

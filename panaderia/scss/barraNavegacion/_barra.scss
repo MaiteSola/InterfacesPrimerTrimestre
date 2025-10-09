@@ -1,4 +1,4 @@
-$navbar-padding-x: $padding-x +5em;
+$navbar-padding-x: $padding-x + 5em;
 $navbar-padding-y: $padding-y;
 
 .navbar {
@@ -10,19 +10,20 @@ $navbar-padding-y: $padding-y;
     align-items: center;
     justify-content: space-between;
     @include gradient-bg($primary, $secondary); //Siempre dentro de algo
-  }
-  .navbar-list-item {
-    display: inline-block;
-    font-family: "Sanchez";
-    font-size: $font-size-base * 0.8;
-    @include padding-xy($navbar-padding-x, $navbar-padding-y);
 
-    &:hover {
-      font-size: $font-size-lg;
-    }
+    .navbar-list-item {
+      display: inline-block;
+      font-family: "Sanchez";
+      font-size: $font-size-base * 0.8;
+      @include padding-xy($navbar-padding-x, $navbar-padding-y);
 
-    a {
-      color: $accent;
+      &:hover {
+        font-size: $font-size-lg;
+      }
+
+      a {
+        color: $accent;
+      }
     }
   }
 }

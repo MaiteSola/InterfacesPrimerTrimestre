@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "target": "esnext", //Versión de javascript que quieres que te genere. La versión que quieras. esnext es la ultima version.
+    "module": "esnext", 
+    "outDir": "dist", //donde me vas a dejar los js? en la carpeta dist
+    "rootDir": "./ts",
+    "strict": true, //Tema tipado. Todas las variables tipadas si no te va a dar un error. Lo va a generar pero te lo va a pintar el error.
+    "sourceMap": true //Es para debuggear en typescript.
+  },
+  "include": ["./ts/**/*.ts"] //QUé ficheros hay
+}
