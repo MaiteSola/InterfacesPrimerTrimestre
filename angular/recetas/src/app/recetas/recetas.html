@@ -1,0 +1,186 @@
+<nav class="navbar navbar-expand-xl navbar-light bg-light fixed-top w-100" id="inicio">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">Recetas de Maite</a>
+
+        <!-- Botón hamburguesa -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Contenido del menú -->
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#inicio">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#recetas">Recetas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#formulario">Formulario</a>
+                </li>
+            </ul>
+
+            <!-- Buscador -->
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscar receta..." aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+<div class=" mt-5 pt-5" id="recetas">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            <!-- Con el row indico la fila -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <!-- COn las col lo que estoy haciendo es dividir las columnas -->
+                <div class="card h-100">
+                    <img src="./img/pastaboloñesa.jpg" class="card-img-top" alt="Pasta">
+                    <div class="card-body">
+                        <h5 class="card-title">Pasta Boloñesa</h5>
+                        <p class="fw-bold">Ingredientes</p>
+                        <p class="card-text">
+                            - Pasta<br>
+                            - Tomate<br>
+                            - Cebolla<br>
+                            - Carne picada</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <!-- COn las col lo que estoy haciendo es dividir las columnas -->
+                <div class="card h-100">
+                    <img src="./img/ensaladillarusa.jpg" class="card-img-top" alt="Ensaladilla">
+                    <div class="card-body">
+                        <h5 class="card-title">Ensaladilla Rusa</h5>
+                        <p class="fw-bold">Ingredientes</p>
+                        <p class="card-text">
+                            - Atún<br>
+                            -Cebolla<br>
+                            - Patata<br>
+                            - Guisantes<br>
+                            - Mayonesa
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <!-- COn las col lo que estoy haciendo es dividir las columnas -->
+                <div class="card h-100">
+                    <img src="./img/arrozpollo.avif" class="card-img-top" alt="Arroz con pollo">
+                    <div class="card-body">
+                        <h5 class="card-title">Arroz con pollo</h5>
+                        <p class="fw-bold">Ingredientes</p>
+                        <p class="card-text">
+                            - Arroz<br>
+                            - Pollo<br>
+                            - Cebolla</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-3">
+                <!-- COn las col lo que estoy haciendo es dividir las columnas -->
+                <div class="card h-100">
+                    <img src="./img/aguacateasado.jpg" class="card-img-top" alt="Aguacate asado">
+                    <div class="card-body">
+                        <h5 class="card-title">Aguacate Asado</h5>
+                        <p class="fw-bold">Ingredientes</p>
+                        <p class="card-text">
+                            - Aguacate<br>
+                            - Cebolla<br>
+                            - Huevo<br>
+                            - Garbanzos
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<h1 class="text-center mt-5 pt-5" id="formulario">Crear Recetas</h1>
+<div class="container mt-4">
+
+    <form>
+        <div class="row mb-3">
+            <label for="inputnombre" class="col-sm-2 col-form-label">Nombre receta</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputnombre">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="formFile" class="col-sm-2 col-form-label">Foto de receta</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="file" id="formFile">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+
+            <label for="inputnombre" class="col-sm-2 col-form-label">Lista elementos</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputnombre">
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mt-4">Enviar</button>
+    </form>
+</div>
+
+<form (ngSubmit)="guardarReceta()" class="receta-form">
+  <h2>Añadir receta</h2>
+
+  <!-- Nombre -->
+  <label>
+    Nombre:
+    <input type="text" [(ngModel)]="nombre" name="nombre" required />
+  </label>
+
+  <!-- Ingredientes tipo tags -->
+  <label>
+    Ingredientes:
+    <div class="tags-container">
+      <div *ngFor="let ing of ingredientes" class="tag">
+        <span>{{ ing }}</span>
+        <button type="button" (click)="removeIngrediente(ing)">×</button>
+      </div>
+
+      <input
+        type="text"
+        [(ngModel)]="inputIngrediente"
+        name="nuevoIngrediente"
+        (keydown)="onIngredienteKey($event)"
+        placeholder="Añadir ingrediente..."
+      />
+    </div>
+  </label>
+
+  <!-- Imagen -->
+  <label>
+    Foto de la receta:
+    <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+  </label>
+
+  <!-- Previsualización -->
+  <div *ngIf="imagenPreview" class="imagen-preview">
+    <img [src]="imagenPreview" alt="Vista previa de la receta" />
+  </div>
+
+  <!-- Botón -->
+  <button type="submit">Guardar receta</button>
+</form>

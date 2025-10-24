@@ -1,0 +1,3 @@
+npm install -g @angular/cli como comando para actualizar el npm.
+ng --version: Para ver la versión de angular En mi caso 20.3.5
+Abrir proyecto personal: ng new NOMBREPROYECTO
