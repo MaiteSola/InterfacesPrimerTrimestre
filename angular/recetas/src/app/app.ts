@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
 import { Recetas } from "./recetas/recetas";
+import { Footer } from "./footer/footer";
 
 @Component({
   selector: 'app-root',
-  imports: [Recetas],
+  imports: [Recetas, Footer, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

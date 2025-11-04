@@ -1,0 +1,35 @@
+<form [formGroup]="contactForm" (ngSubmit)="sendMessage()">
+  <div class="mb-3">
+    <label for="email" class="form-label">Dirección Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      formControlName="email"
+      placeholder="name@example.com"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="message" class="form-label">Mensaje</label>
+    <textarea
+      class="form-control"
+      id="message"
+      formControlName="message"
+      rows="3"
+    ></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Send Message</button>
+</form>
+
+@if (email?.invalid && (email?.dirty || email?.touched)) {
+  <div class="alert alert-danger mt-2">
+    @if (email?.hasError('required')) {
+      <div>Email is required</div>
+    }
+    @if (email?.hasError('email')) {
+      <div>Format is invalid</div>
+    }
+  </div>
+}

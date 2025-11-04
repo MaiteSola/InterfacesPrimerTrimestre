@@ -1,0 +1,12 @@
+<h2>Lista de Contactos</h2>
+
+<ul>
+  @for (contact of contacts; track contact.email) {
+    <li>
+      <strong>Email:</strong> {{ contact.email }} <br>
+      <strong>Mensaje:</strong> {{ contact.message }}
+    </li>
+  } @empty {
+    <li><p>No hay contactos aún.</p></li>
+  }
+</ul>
