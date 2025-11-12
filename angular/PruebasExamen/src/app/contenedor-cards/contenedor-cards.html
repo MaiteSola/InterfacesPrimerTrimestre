@@ -1,0 +1,12 @@
+<div class="container my-4">
+  <div class="row g-4">
+    @for (c of cards; track c.titulo) {
+      <div class="col-12 col-md-4 d-flex">
+        <app-card [info]="c" 
+                  (cardClick)="mostrarMensaje($event)" 
+                  (deleteClick)="borrarCard($event)" 
+                  class="flex-fill"/>
+      </div>
+    }
+  </div>
+</div>

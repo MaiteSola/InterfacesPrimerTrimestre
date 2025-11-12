@@ -1,0 +1,13 @@
+<h2>Añadir Card</h2>
+<form [formGroup]="cardForm" (ngSubmit)="agregarCard()">
+  <div class="mb-3">
+    <input type="text" formControlName="titulo" placeholder="Título" class="form-control">
+  </div>
+  <div class="mb-3">
+    <input type="text" formControlName="descripcion" placeholder="Descripción" class="form-control">
+  </div>
+  <div class="mb-3">
+    <input type="text" formControlName="imagen" placeholder="URL Imagen" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary">Agregar</button>
+</form>

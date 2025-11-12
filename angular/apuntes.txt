@@ -1,3 +1,10 @@
 npm install -g @angular/cli como comando para actualizar el npm.
 ng --version: Para ver la versión de angular En mi caso 20.3.5
 Abrir proyecto personal: ng new NOMBREPROYECTO
+
+npm install bootstrap
+en el json tienes que agregar 
+"scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" ]
+y en styles scss:
+
+@import "bootstrap/dist/css/bootstrap.min.css";

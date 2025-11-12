@@ -1,0 +1,21 @@
+.card {
+  height: 100%;               // ocupa toda la columna
+  display: flex;
+  flex-direction: column;
+
+  img {
+    height: 180px;            // altura fija para todas las imágenes
+    width: 100%;
+    object-fit: cover;        // recorta la imagen sin deformar
+  }
+
+  .card-body {
+    flex: 1;                  // ocupa el resto del espacio de la card
+    display: flex;
+    flex-direction: column;
+  }
+
+  button.mt-auto {
+    margin-top: auto;          // botón siempre abajo
+  }
+}
