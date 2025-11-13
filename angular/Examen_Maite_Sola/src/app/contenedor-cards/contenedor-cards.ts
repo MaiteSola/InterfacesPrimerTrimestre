@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { Card } from "../card/card";
 import { cardModel } from '../models/cardModel';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-contenedor-cards',
   standalone: true,
-  imports: [Card],
+  imports: [Card,CurrencyPipe],
   templateUrl: './contenedor-cards.html',
   styleUrl: './contenedor-cards.scss',
 })
@@ -71,9 +72,33 @@ export class ContenedorCards {
   }
   ]);
 
- // Maneja el evento de addToCart (ej. loguea, o usa un servicio de carrito)
-  onAddToCart(event: { pizza: cardModel, cantidad: number }) {
-    console.log(`Añadido: ${event.pizza.nombre} x ${event.cantidad}`);
-    // Aquí: inyecta un CarritoService y llama a addItem(event.pizza, event.cantidad)
+// Dentro de la clase ContenedorCards
+carrito = signal<{ pizza: cardModel; cantidad: number }[]>([]);
+
+get total(): number {
+  return this.carrito().reduce((acc, item) => acc + item.pizza.precio * item.cantidad, 0);
+}
+
+
+ onAddToCart(event: { pizza: cardModel; cantidad: number }) {
+  if (event.cantidad === 0) return; // no añadir si la cantidad es 0
+
+  const itemExistente = this.carrito().find(i => i.pizza.nombre === event.pizza.nombre);
+
+  if (itemExistente) {
+    // Sumar cantidad si ya existe
+    itemExistente.cantidad += event.cantidad;
+    this.carrito.set([...this.carrito()]); // disparar signal
+  } else {
+    this.carrito.set([...this.carrito(), { pizza: event.pizza, cantidad: event.cantidad }]);
   }
+  
+}
+
+// Quitar pizza del carrito
+  quitarItem(pizzaNombre: string) {
+    this.carrito.set(this.carrito().filter(i => i.pizza.nombre !== pizzaNombre));
+  }
+
+
 }
