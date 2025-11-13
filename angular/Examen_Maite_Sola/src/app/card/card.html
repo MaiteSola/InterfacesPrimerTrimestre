@@ -1,6 +1,9 @@
 <div class="card shadow-sm text-center p-3 mb-3 h-100"> <!-- AÑADIDO h-100 -->
   <!-- Foto principal -->
-  <img [src]="pizza()?.foto" class="card-img-top mb-2" [alt]="pizza()?.nombre"> <!-- Altura fija + cover -->
+ <img [src]="pizza()?.foto"
+     class="card-img-top mb-2 img-card-fixed"
+     [alt]="pizza()?.nombre">
+
 
   <!-- Nombre -->
   <h5 class="card-title">{{ pizza()?.nombre }}</h5>
