@@ -2,13 +2,13 @@ import { Component, input, output, signal } from '@angular/core';
 import { cardModel } from '../models/cardModel';
 import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ResumenPedido } from '../resumen-pedido/resumen-pedido';
+
 
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CurrencyPipe,FormsModule,ResumenPedido],
+  imports: [CurrencyPipe,FormsModule],
   templateUrl: './card.html',
   styleUrl: './card.scss',
 })
