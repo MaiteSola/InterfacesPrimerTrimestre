@@ -38,13 +38,5 @@
     <button class="btn btn-primary" type="submit">Añadir</button>
   </form>
 
-  <!-- RESUMEN -->
-@if (mostrarResumen()) {
-  <app-resumen-pedido
-    [cantidad]="resumenCantidad()"
-    [nombre]="resumenNombre()"
-    [precioTotal]="resumenPrecioTotal()"
-    (quitar)="quitarResumen()">
-  </app-resumen-pedido>
-}
+
 </div>

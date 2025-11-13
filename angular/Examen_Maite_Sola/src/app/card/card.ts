@@ -55,13 +55,7 @@ pizza = input<cardModel>();
     }
 
     // RESETEAR A 1 (no a 0)
-    this.cantidad.set(1);
+    this.cantidad.set(0);
   }
-
-  quitarResumen() {
-    this.mostrarResumen.set(false);
-    this.resumenCantidad.set(0);
-    this.resumenNombre.set('');
-    this.resumenPrecioTotal.set(0);
-  }
+  
 }
