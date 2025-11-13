@@ -1,3 +1,7 @@
+@if (carrito().length > 0) {
+<!-- todo el formulario -->
+
+
 <div class="d-flex justify-content-center my-5">
   <div class="w-100" style="max-width: 400px;">
     <form class="d-flex flex-column gap-3">
@@ -7,7 +11,7 @@
         <label for="horaEntrega" class="form-label">Hora de entrega</label>
         <input type="time" id="horaEntrega" [(ngModel)]="horaEntrega" name="horaEntrega" class="form-control">
         @if (errorHora() !== '') {
-          <div class="text-danger mt-1">{{ errorHora() }}</div>
+        <div class="text-danger mt-1">{{ errorHora() }}</div>
         }
       </div>
 
@@ -16,17 +20,14 @@
         <label for="direccion" class="form-label">Dirección completa</label>
         <input type="text" id="direccion" [(ngModel)]="direccion" name="direccion" class="form-control">
         @if (errorDireccion() !== '') {
-          <div class="text-danger mt-1">{{ errorDireccion() }}</div>
+        <div class="text-danger mt-1">{{ errorDireccion() }}</div>
         }
       </div>
 
       <!-- Método de pago -->
       <div class="mb-3">
         <label class="form-label">Método de pago</label>
-        <select 
-          [(ngModel)]="metodoPago" 
-          (ngModelChange)="cambiarMetodoPago($event)" 
-          name="metodoPago" 
+        <select [(ngModel)]="metodoPago" (ngModelChange)="cambiarMetodoPago($event)" name="metodoPago"
           class="form-select">
           <option value="tarjeta">Tarjeta</option>
           <option value="bizum">Bizum</option>
@@ -35,24 +36,24 @@
 
       <!-- Input tarjeta -->
       @if (metodoPago() === 'tarjeta') {
-        <div class="mb-3">
-          <label for="tarjeta" class="form-label">Número de tarjeta (16 dígitos)</label>
-          <input type="text" id="tarjeta" [(ngModel)]="tarjeta" name="tarjeta" class="form-control" maxlength="16">
-          @if (errorPago() !== '') {
-            <div class="text-danger mt-1">{{ errorPago() }}</div>
-          }
-        </div>
+      <div class="mb-3">
+        <label for="tarjeta" class="form-label">Número de tarjeta (16 dígitos)</label>
+        <input type="text" id="tarjeta" [(ngModel)]="tarjeta" name="tarjeta" class="form-control" maxlength="16">
+        @if (errorPago() !== '') {
+        <div class="text-danger mt-1">{{ errorPago() }}</div>
+        }
+      </div>
       }
 
       <!-- Input móvil -->
       @if (metodoPago() === 'bizum') {
-        <div class="mb-3">
-          <label for="movil" class="form-label">Número de móvil (9 dígitos)</label>
-          <input type="text" id="movil" [(ngModel)]="movil" name="movil" class="form-control" maxlength="9">
-          @if (errorPago() !== '') {
-            <div class="text-danger mt-1">{{ errorPago() }}</div>
-          }
-        </div>
+      <div class="mb-3">
+        <label for="movil" class="form-label">Número de móvil (9 dígitos)</label>
+        <input type="text" id="movil" [(ngModel)]="movil" name="movil" class="form-control" maxlength="9">
+        @if (errorPago() !== '') {
+        <div class="text-danger mt-1">{{ errorPago() }}</div>
+        }
+      </div>
       }
 
       <!-- Botón pagar -->
@@ -60,11 +61,12 @@
 
       <!-- Mensaje final -->
       @if (mensajeFinal() !== '') {
-        <div class="alert alert-success mt-3">
-          {{ mensajeFinal() }}
-        </div>
+      <div class="alert alert-success mt-3">
+        {{ mensajeFinal() }}
+      </div>
       }
-      
+
     </form>
   </div>
 </div>
+}

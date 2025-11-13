@@ -1,12 +1,13 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { Card } from "../card/card";
 import { cardModel } from '../models/cardModel';
 import { CurrencyPipe } from '@angular/common';
+import { Form } from '../formulario/form';
 
 @Component({
   selector: 'app-contenedor-cards',
   standalone: true,
-  imports: [Card,CurrencyPipe],
+  imports: [Card,CurrencyPipe,Form],
   templateUrl: './contenedor-cards.html',
   styleUrl: './contenedor-cards.scss',
 })
@@ -75,24 +76,30 @@ export class ContenedorCards {
 // Dentro de la clase ContenedorCards
 carrito = signal<{ pizza: cardModel; cantidad: number }[]>([]);
 
-get total(): number {
-  return this.carrito().reduce((acc, item) => acc + item.pizza.precio * item.cantidad, 0);
-}
+// get total(): number {
+//   return this.carrito().reduce((acc, item) => acc + item.pizza.precio * item.cantidad, 0);
+// }
+total = computed(() => 
+  this.carrito().reduce((acc, item) => acc + item.pizza.precio * item.cantidad, 0)
+);
 
 
- onAddToCart(event: { pizza: cardModel; cantidad: number }) {
-  if (event.cantidad === 0) return; // no añadir si la cantidad es 0
+onAddToCart(event: { pizza: cardModel; cantidad: number }) {
+  if (event.cantidad <= 0) return;
 
-  const itemExistente = this.carrito().find(i => i.pizza.nombre === event.pizza.nombre);
+  const actual = this.carrito();
+  const indice = actual.findIndex(i => i.pizza.nombre === event.pizza.nombre);
 
-  if (itemExistente) {
-    // Sumar cantidad si ya existe
-    itemExistente.cantidad += event.cantidad;
-    this.carrito.set([...this.carrito()]); // disparar signal
+  if (indice !== -1) {
+    const nuevo = [...actual];
+    nuevo[indice] = {
+      ...nuevo[indice],
+      cantidad: nuevo[indice].cantidad + event.cantidad
+    };
+    this.carrito.set(nuevo);
   } else {
-    this.carrito.set([...this.carrito(), { pizza: event.pizza, cantidad: event.cantidad }]);
+    this.carrito.set([...actual, { pizza: event.pizza, cantidad: event.cantidad }]);
   }
-  
 }
 
 // Quitar pizza del carrito
@@ -100,5 +107,10 @@ get total(): number {
     this.carrito.set(this.carrito().filter(i => i.pizza.nombre !== pizzaNombre));
   }
 
+ //Conexion con carrito:
+
+  limpiarCarrito() {
+  this.carrito.set([]); // limpia el carrito
+}
 
 }

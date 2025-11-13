@@ -1,11 +1,13 @@
-import { Component, signal } from '@angular/core';
+import { Component, EventEmitter, input, Input, output, Output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { cardModel } from '../models/cardModel';
 
 @Component({
+  standalone: true,
   selector: 'app-form',
   imports: [FormsModule],
   templateUrl: './form.html',
-  styleUrl: './form.scss',
+  styleUrls: ['./form.scss'],
 })
 export class Form {
 
@@ -61,19 +63,21 @@ export class Form {
 
   //pagar
  // Acción de pagar
-  pagar() {
-    if (!this.validarFormulario()) return;
+ pagar() {
+  if (!this.validarFormulario()) return;
 
-    // Limpiar pedido y formulario
-    this.mensajeFinal.set('¡Gracias por su pedido!');
-    this.horaEntrega.set('');
-    this.direccion.set('');
-    this.tarjeta.set('');
-    this.movil.set('');
-    this.metodoPago.set('tarjeta');
-    
-    // Aquí podrías emitir un evento para limpiar el carrito en ContenedorCards
-  }
+  this.mensajeFinal.set('¡Gracias por su pedido!');
+
+  // Resetear
+  this.horaEntrega.set('');
+  this.direccion.set('');
+  this.tarjeta.set('');
+  this.movil.set('');
+  this.metodoPago.set('tarjeta');
+
+  // EMITIR AL PADRE
+  this.pagoRealizado.emit();
+}
 
   // Método que se llama al cambiar el select
 cambiarMetodoPago(nuevo: string) {
@@ -81,5 +85,9 @@ cambiarMetodoPago(nuevo: string) {
   this.errorPago.set(''); // limpiar errores de pago al cambiar
 }
 
+//Conectar con resumen
+carrito = input.required<{ pizza: cardModel; cantidad: number }[]>();
+//avisar al contenedor al pagar
+pagoRealizado = output<void>();
 
 }
