@@ -1,0 +1,47 @@
+<div class="card shadow-sm text-center p-3 mb-3 h-100"> <!-- AÑADIDO h-100 -->
+  <!-- Foto principal -->
+  <img [src]="pizza()?.foto" class="card-img-top mb-2" [alt]="pizza()?.nombre"> <!-- Altura fija + cover -->
+
+  <!-- Nombre -->
+  <h5 class="card-title">{{ pizza()?.nombre }}</h5>
+
+  <!-- Precio -->
+  <p class="card-text fw-bold">{{ pizza()?.precio | currency:'EUR' }}</p>
+
+  <!-- Ingredientes como fotos -->
+  <div class="ingredients d-flex flex-wrap justify-content-center gap-2 mb-3">
+    @if (pizza()?.ingredientes && pizza()!.ingredientes.length > 0) {
+      @for (ing of pizza()?.ingredientes; track ing) {
+        <img [src]="ing"
+             class="ingredient-img rounded-circle"
+             alt="Ingrediente"
+             width="50" height="50">
+      }
+    } @else {
+      <p class="text-muted">Sin ingredientes</p>
+    }
+  </div>
+
+  <!-- Formulario -->
+  <form (ngSubmit)="onAddToCart()" class="d-flex justify-content-center align-items-center gap-2 mt-auto"> <!-- mt-auto empuja al fondo -->
+    <label for="cantidad">Cantidad</label>
+    <input type="number"
+           id="cantidad"
+           name="cantidad"
+           [(ngModel)]="cantidadValue"
+           min="1"
+           required
+           class="form-control w-auto text-center">
+    <button class="btn btn-primary" type="submit">Añadir</button>
+  </form>
+
+  <!-- RESUMEN -->
+@if (mostrarResumen()) {
+  <app-resumen-pedido
+    [cantidad]="resumenCantidad()"
+    [nombre]="resumenNombre()"
+    [precioTotal]="resumenPrecioTotal()"
+    (quitar)="quitarResumen()">
+  </app-resumen-pedido>
+}
+</div>

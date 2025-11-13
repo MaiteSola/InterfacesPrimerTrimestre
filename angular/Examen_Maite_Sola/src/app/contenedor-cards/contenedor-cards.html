@@ -1,0 +1,9 @@
+<div class="container my-5">
+  <div class="row g-4"> <!-- g-4 = gutter (espacio entre cards) -->
+    @for (p of pizzas(); track p.nombre) {
+      <div class="col-12 col-md-6 col-lg-4"> <!-- 1 en móvil, 2 en tablet, 3 en desktop -->
+        <app-card [pizza]="p" (addToCart)="onAddToCart($event)"></app-card>
+      </div>
+    }
+  </div>
+</div>
