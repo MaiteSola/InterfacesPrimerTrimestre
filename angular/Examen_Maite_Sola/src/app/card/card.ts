@@ -16,7 +16,7 @@ export class Card {
 pizza = input<cardModel>();
   addToCart = output<{ pizza: cardModel, cantidad: number }>();
 
-  // CANTIDAD EMPIEZA EN 1
+  // CANTIDAD EMPIEZA EN 0
   cantidad = signal(0);
 
   // Resumen
@@ -27,16 +27,17 @@ pizza = input<cardModel>();
 
   get cantidadValue() { return this.cantidad(); }
   set cantidadValue(val: number) {
-    // No permitimos valores menores a 1
-    const nuevoValor = val < 1 ? 1 : val;
+    // Permitimos 0 o cualquier número positivo
+    const nuevoValor = val < 0 ? 0 : val;
     this.cantidad.set(nuevoValor);
   }
 
-  onAddToCart() {
+   onAddToCart() {
     const cant = this.cantidad();
 
-    if (cant < 1) {
-      alert('Debes seleccionar al menos 1 pizza');
+    // No añadir si la cantidad es 0
+    if (cant === 0) {
+      alert('Debes seleccionar al menos 1 pizza para añadir al carrito');
       return;
     }
 
@@ -44,7 +45,7 @@ pizza = input<cardModel>();
     this.addToCart.emit({ pizza: this.pizza()!, cantidad: cant });
 
     // MOSTRAR RESUMEN solo si cantidad > 1
-    if (cant > 1) {
+    if (cant > 0) {
       this.resumenCantidad.set(cant);
       this.resumenNombre.set(this.pizza()!.nombre);
       this.resumenPrecioTotal.set(cant * this.pizza()!.precio);
@@ -57,8 +58,10 @@ pizza = input<cardModel>();
     this.cantidad.set(1);
   }
 
-  // NUEVO: Quitar resumen
   quitarResumen() {
     this.mostrarResumen.set(false);
+    this.resumenCantidad.set(0);
+    this.resumenNombre.set('');
+    this.resumenPrecioTotal.set(0);
   }
 }
