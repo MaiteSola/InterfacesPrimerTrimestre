@@ -11,13 +11,15 @@ export class FotoPersonal {
 
  title = input("Title");
  srcImage = input("default.jpg"); //NO hace falta poner valores es por si no viene nada.
+
+ mensajeClick = input("Pinchado en foto: ...")
  
  clickFoto = output<string>();//Al evento le podemos pasar lo que queraos, en este caso un string.
 
  //Creo el evento
 
  clickImagen() {
-  this.clickFoto.emit("Pinchado en foto: "+this.title());
+  this.clickFoto.emit(this.mensajeClick());
 
 }
  

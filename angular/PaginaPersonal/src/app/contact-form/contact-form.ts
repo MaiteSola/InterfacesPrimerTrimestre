@@ -1,6 +1,7 @@
-import { Component, EventEmitter, output, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { contactModel } from '../models/contactModel';
+import { ContactModel } from '../models/contactModel';
+import { ContactService } from '../services/contact-service';
 
 @Component({
   selector: 'app-contact-form',
@@ -9,8 +10,7 @@ import { contactModel } from '../models/contactModel';
   styleUrl: './contact-form.scss',
 })
 export class ContactForm {
-  //@Output() contactSubmitted = new EventEmitter<contactModel>(); // ← EVENTO
-  contactSubmitted = output<contactModel>();
+  constructor(private ContactService: ContactService) { }
   contactForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     message: new FormControl('', Validators.required),
@@ -25,8 +25,9 @@ export class ContactForm {
 
   sendMessage() {
     if (this.contactForm.valid) {
-      const newContact: contactModel = this.contactForm.value as contactModel;
-      this.contactSubmitted.emit(newContact); // ← EMITIMOS
+      const newContact: ContactModel = this.contactForm.value as ContactModel;
+      //this.contactSubmitted.emit(newContact); // ← EMITIMOS
+      this.ContactService.anadirContacto(newContact);
       this.contactForm.reset(); // ← Limpiamos
     }
   }

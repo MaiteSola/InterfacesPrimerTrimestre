@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ContactForm } from '../contact-form/contact-form';
 import { ContactList } from "../contact-list/contact-list";
-import { contactModel } from '../models/contactModel';
+import { ContactModel } from '../models/contactModel';
 
 @Component({
   selector: 'app-contact',
@@ -11,11 +11,7 @@ import { contactModel } from '../models/contactModel';
 })
 export class Contact {
   
-  contactList: contactModel[] = [];
-
-  addContact(newContact: contactModel) {
-    this.contactList.push(newContact);
-  }
+  //No necesita la lista porque tenemos el servicio
 
 
 }

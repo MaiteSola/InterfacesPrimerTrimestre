@@ -1,7 +1,9 @@
 import { Component, signal, SimpleChanges } from '@angular/core';
 import { FotoPersonal } from '../foto-personal/foto-personal';
 import { FotoPerfilModel } from '../models/fotoPersonalModel';
-import {UpperCasePipe } from '@angular/common';
+import { UpperCasePipe } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { ProfileService } from '../services/profile-service';
 @Component({
   selector: 'app-profile',
   imports: [FotoPersonal, UpperCasePipe],
@@ -17,37 +19,23 @@ export class Profile {
   imagenClickeada = '';
 
   photos: FotoPerfilModel[] = [];
+
+  //Con esto ya tengo un cliente
+  constructor(private http: HttpClient , private profileService: ProfileService) {}
   
-  ngOnInit(){
-
-     let fotoContento = new FotoPerfilModel(
-      'Estoy Contento',
-      'https://img.freepik.com/vector-gratis/diseno-avatar-empleado_1146-21.jpg?semt=ais_hybrid&w=740&q=80',
-      ''
-    );
-    let fotoTriste = new FotoPerfilModel(
-      'Estoy Triste',
-      'https://static.vecteezy.com/system/resources/previews/053/232/166/non_2x/sad-boy-cartoon-avatar-illustration-free-vector.jpg',
-      ''
-    );
-    let fotoEnfadado = new FotoPerfilModel(
-      'Estoy enfadado',
-      'data:image/jpeg;base64,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',
-      ''
-    );
-    this.photos = [fotoContento, fotoTriste, fotoEnfadado];
-
+  ngOnInit() {
+    //Hago la llamada a la api para tener la lista de perfiles
+ this.photos = this.profileService.listarPerfiles();
+   
   }
 
-  ngOnChanges(changes: SimpleChanges){
-    console.log("Ha cambiado algo de la página");
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('Ha cambiado algo de la página');
   }
 
-  ngOnDestroy(){
-
+  ngOnDestroy() {
     this.photos = [];
   }
-
 
   toggleName() {
     this.esOculto.set(!this.esOculto());
@@ -61,5 +49,4 @@ export class Profile {
   ensenarClick(event: string) {
     this.imagenClickeada = event;
   }
-
 }

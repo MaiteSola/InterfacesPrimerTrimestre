@@ -15,11 +15,10 @@
         @for (photo of photos; track $index){
         <div class="col-6">
             <app-foto-personal [title]="photo.nombre" [srcImage]="photo.foto"
-                (clickFoto)="ensenarClick($event)"></app-foto-personal>
+                [mensajeClick]="photo.mensajeClick" (clickFoto)="ensenarClick($event)"></app-foto-personal>
             <!-- ME creo una variable dentro del profila para poner que foto -->
         </div>
         }
     </div>
-
     
 </div>

@@ -1,12 +1,16 @@
+<!-- @if (contactosAsync$ | async; as contactos){ -->
+@if (contactos.length !== 0) {
 <h2>Lista de Contactos</h2>
-
 <ul>
-  @for (contact of contacts; track contact.email) {
-    <li>
-      <strong>Email:</strong> {{ contact.email }} <br>
-      <strong>Mensaje:</strong> {{ contact.message }}
-    </li>
-  } @empty {
-    <li><p>No hay contactos aún.</p></li>
+  @for (contact of contactos; track contact.email) {
+  <li>
+    <strong>Email:</strong> {{ contact.email }} <br>
+    <strong>Mensaje:</strong> {{ contact.message }} <br>
+
+    <button (click)="borrarContacto(contact.email)">
+      Borrar
+    </button>
+  </li>
   }
 </ul>
+}

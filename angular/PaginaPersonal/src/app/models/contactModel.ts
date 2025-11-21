@@ -1,6 +1,11 @@
-// Nos creamos nuestra clase con los parametros que le queremos pasar
-export interface contactModel {
- email: string;
- message: string;
- 
+export class ContactModel {
+  id?: string;        // <-- MockAPI lo genera automáticamente
+  email: string;
+  message: string;
+
+  constructor(email: string, message: string, id?: string) {
+    this.email = email;
+    this.message = message;
+    this.id = id;
+  }
 }

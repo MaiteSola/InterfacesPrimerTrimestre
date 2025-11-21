@@ -8,3 +8,6 @@ en el json tienes que agregar
 y en styles scss:
 
 @import "bootstrap/dist/css/bootstrap.min.css";
+
+
+generar servicios ng generate service services/ContactService
